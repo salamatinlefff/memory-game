@@ -7,9 +7,8 @@
   gap: 20px;
   width: 100%;
   max-height: 80px;
-  margin-bottom: 50px;
-  box-shadow: 0 0 20px #570000;
-  background-color: #662828;
+  box-shadow: 0 0 20px #5f2e43;
+  background-color: #5f2e43;
 }
 
 .navigation__list {
@@ -25,11 +24,29 @@
   font-weight: 600;
   background-color: transparent;
   border: none;
+  opacity: 1;
   border-radius: 10px;
   box-shadow: 0px 0px 5px #ffffff;
   transform: scale(1);
   transition: transform 0.1s ease-in-out;
-  background-color: #493636;
+  background-color: #7e5e7e;
+  transition: all 0.3s ease-in-out;
+}
+
+.restart {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.restart_active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.navigation__button:hover {
+  color: #383737;
+  background-color: #d4d3d3;
 }
 
 .navigation__button:active {
@@ -65,11 +82,15 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: #E90000;
+  background-color: #f10cc0;
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0px 1px 1px rgba(69, 2, 2, 0.3);
-  transition: right 0.3s ease-in-out, background-image 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.mute__checkbox:hover+.mute__label::before{
+  background-color: #b80d77;
 }
 
 .mute__label::before {

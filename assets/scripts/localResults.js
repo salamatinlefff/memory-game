@@ -1,10 +1,5 @@
 import { addZero } from './changeTime.js';
 
-// const localBest = localStorage.getItem('memory-game-lefff_best-result');
-// localStorage.setItem('memory-game-lefff_best-result', '552');
-
-
-
 const isLocalBest = () => {
   return +localStorage.getItem('memory-game-lefff_best-result');
 }
@@ -12,15 +7,12 @@ const isLocalBest = () => {
 let bestResult = isLocalBest() ? isLocalBest() : 0;
 
 const isBest = seconds => {
-  if(bestResult > 0) {
     if(seconds < bestResult) {
+      bestResult = seconds
       return true;
     } else {
       return false;
     }
-  }  else {
-  return true;
-  }
 }
 
 export const localResults = data => {
@@ -32,19 +24,18 @@ export const localResults = data => {
   const localResults = localStorage.getItem('memory-game-lefff_results');
   const newResult = [`${resultGame}`];
   
-  if(data > 0) {
+  if(data >= 5) {
     if(isBest(data)) {
-      if(bestResult > 5) {
-        localStorage.setItem('memory-game-lefff_best-result', data);
-  
+      localStorage.setItem('memory-game-lefff_best-result', bestResult);
     } else if(bestResult === 0) {
       bestResult = data
-      localStorage.setItem('memory-game-lefff_best-result', data);
+      localStorage.setItem('memory-game-lefff_best-result', bestResult);
     }
-  }
+  } else if(data < 5) {
+    
   } else {
     bestResult = data
-      localStorage.setItem('memory-game-lefff_best-result', data);
+    localStorage.setItem('memory-game-lefff_best-result', data);
   }
 
   if(localResults) {

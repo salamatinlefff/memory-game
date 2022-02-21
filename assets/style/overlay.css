@@ -1,0 +1,138 @@
+.overlay {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  width: 400px;
+  height: 200px;
+  padding: 20px 25px;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  pointer-events: none;
+  border-radius: 10px;
+  font-size: 18px;
+  background-color: #362d33;
+  opacity: 0;
+  box-shadow: 0 0 20px #ffffff;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.overlay__title {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.overlay__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+  height: 25px;
+}
+
+.overlay_active {
+  user-select: auto;
+  pointer-events: stroke;
+  opacity: 1;
+}
+
+.modal_active {
+  user-select: auto;
+  pointer-events: stroke;
+  opacity: 1;
+}
+
+.overlay__close {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  width: 20px;
+  font-size: 40px;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+}
+
+.overlay__input {
+  appearance: none;
+  cursor: pointer;
+  width: 200px;
+  height: 10px;
+  margin-left: 0;
+  border-radius: 0.3rem;
+  background-color: rgb(216, 211, 211);
+  outline: none;
+  opacity: 1;
+  transition: all 0.15s ease-in-out;
+  transition-duration: width, opacity, margin-left;
+}
+
+  .overlay__input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(66, 12, 64);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .overlay__input::-webkit-slider-thumb:hover {
+    background-color: rgb(100, 3, 3);
+    border: 1px solid rgb(255, 255, 255);
+  }
+
+
+.play {
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.resume {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0;
+  padding: 40px;
+  border: none;
+  transform: scale(1);
+  text-transform: capitalize;
+  background-color: transparent;
+  transition: transform 0.1s ease-in-out;
+}
+
+.resume:active {
+  transform: scale(0.9);
+}
+
+.resume_active {
+  user-select: auto;
+  pointer-events: stroke;
+  opacity: 1;
+}

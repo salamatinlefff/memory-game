@@ -25,7 +25,9 @@ const timer = (timeText) => {
   timeText.textContent = `${addZero(minutes)}:${addZero(seconds % 60)}`;
 }
 
-export const changeTime = (timeText, endGame) => {
+export const changeTime = (endGame) => {
+  const timeText = document.querySelector('.time__text');
+
   if(!endGame) {
     interval = setInterval( timer, 1000, timeText);
   } else if(endGame) {

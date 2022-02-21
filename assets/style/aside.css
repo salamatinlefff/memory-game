@@ -12,8 +12,8 @@
 
 .aside {
   border-radius: 20px;
-  box-shadow: 0 0 20px #570000;
-  background-color: #662828;
+  box-shadow: 0 0 20px #5f2e43;
+  background-color: #5f2e43;
 }
 
 .aside__time {
@@ -26,13 +26,12 @@
   align-items: center;
   padding: 20px;
   border-radius: 20px;
-  box-shadow: 0 0 20px #570000;
-  background-color: #662828;
 }
 
 .time__name {
   color: #14e9d7;
-  font-size: 18px;
+  font-size: 20px;
+  letter-spacing: 2px;
   margin-bottom: 5px;
 }
 
@@ -58,8 +57,6 @@
 
 .best__title {
   color: #14e9d7;
-}
-.best__text {
 }
 
 .aside__results {

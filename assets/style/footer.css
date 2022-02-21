@@ -1,0 +1,28 @@
+.footer {
+  order: 4;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  align-self: flex-end;
+  justify-content: space-between;
+  padding: 25px 5px 5px;
+  color: #b80d77;
+}
+
+.github {
+font-size: 14px;
+}
+
+.year {
+  font-size: 12px;
+}
+
+
+.rs_link {
+  display: block;
+  width: 100px;
+  height: 40px;
+  background-image: url(../img/rs_school_js.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}

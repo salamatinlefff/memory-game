@@ -10,12 +10,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon/favicon-16x16.png">
 <link rel="manifest" href="./assets/img/favicon/site.webmanifest">
+
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
-
-  <!-- <link rel="preload" href="./assets/fonts/poppins-v19-latin-700.woff2" as="font" crossorigin> -->
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   <link rel="stylesheet" href="./assets/style/normalize.css">
   <link rel="stylesheet" href="./assets/style/fonts.css">
@@ -23,23 +20,26 @@
   <link rel="stylesheet" href="./assets/style/header.css">
   <link rel="stylesheet" href="./assets/style/aside.css">
   <link rel="stylesheet" href="./assets/style/main.css">
-  <link rel="stylesheet" href="./assets/style/modal.css">
+  <link rel="stylesheet" href="./assets/style/overlay.css">
   <link rel="stylesheet" href="./assets/style/footer.css">
 
-  <script src="./assets/scripts/app.js" type="module"></script>
+  <script src="./assets/scripts/index.js" type="module"></script>
 
 </head>
 <body>
 
- <header class="header">
+  <header class="header">
     <nav class="header__navigation">
       <ul class="navigation__list">
+              
+        <li class="navigation__item">
+          <button class="navigation__button restart">restart
+
+        </button>
+      </li>
+      
         <li class="navigation__item">
           <button class="navigation__button home">home</button>
-        </li>
-
-        <li class="navigation__item">
-          <button class="navigation__button">top players</button>
         </li>
 
         <li class="navigation__item">
@@ -53,222 +53,37 @@
       <label for="mute" class="mute__label">mute</label>
     </div>
   </header>
-    
 
-    <div class="container">
-        
-      <!-- <div class="sidebar">
-        
-        <aside class="aside__time time aside">
-          <span class="time__name">SuPeRpUpErNiCkNaMe</span>
-          <h3 class="time__title">Timer:</h3>
-          <span class="time__text">00:00</span>
-        </aside>
-        
-
-        <aside class="aside__best aside">
-          <h3 class="best__title">Best result:</h3>
-          <span class="best__text">00:00</span>
-        </aside>
-
-      </div> -->
-
-      <main class="main main__home home ">
-        <h2 class="home__title">Hello player.</h2>
-        <p class="home__text">I am glad to see you to <span class="home__text-select">memory-game v0.0003210</span></p>
-        <p class="home__text"><span class="home__text-select">Rules:</span> It is necessary to find all matching pictures in the minimum time and have fun :)</p>
-        <form class="home__form" action="#">
-          <label class="home__label"><span class="home__text-select">Please enter your nickname:</span>
-            <input class="home__input" type="text" name="nickname" minlength="2" maxlength="16" title="minimum 2 symbols, maximum 16 symbols" placeholder="here" autofocus>
-          </label>
-          <button class="home__button" type="submit">START</button>
-        </form>
-      </main>
-
-    <!-- <main class="main main__game">
-        <div class="game-wrapper">
-          <ul class="cards">
-            
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-1.png">
-              </div>
-            </li>
+  <div class="overlay">
+    <div class="modal">
+      <h2 class="overlay__title">Settings</h2>
       
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-2.png">
-              </div>
-            </li>
-      
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-3.png">
-              </div>
-            </li>
-      
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-4.png">
-              </div>
-            </li>
-      
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-5.png">
-              </div>
-            </li>
-      
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-6.png">
-              </div>
-            </li>
-      
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-7.png">
-              </div>
-            </li>
-      
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-8.png">
-              </div>
-            </li>
-      
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-1.png">
-              </div>
-            </li>
-      
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-2.png">
-              </div>
-            </li>
-      
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-3.png">
-              </div>
-            </li>
-      
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-4.png">
-              </div>
-            </li>
-      
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-5.png">
-              </div>
-            </li>
-      
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-6.png">
-              </div>
-            </li>
-      
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-7.png">
-              </div>
-            </li>
-      
-            <li class="card">
-              <div class="view view_front">
-                <img src="./assets/img/que_icon.svg">
-              </div>
-              <div class="view view_back">
-                <img class="back_img" src="./assets/img/img-8.png">
-              </div>
-            </li>
-          </ul>
-        </div>
-      </main> -->
-
-      <!-- <div class="aside__results aside">
-        <h2 class="results__title">My Results:</h2>
-        <ol class="results__list">
-          <li class="results__item">00:00</li>
-          <li class="results__item">00:00</li>
-          <li class="results__item">00:00</li>
-          <li class="results__item">00:00</li>
-          <li class="results__item">00:00</li>
-          <li class="results__item">00:00</li>
-          <li class="results__item">00:00</li>
-          <li class="results__item">00:00</li>
-          <li class="results__item">00:00</li>
-          <li class="results__item">00:00</li>
-        </ol>
-      </div> -->
-      
-    
-      <div class="overlay">
-        <div class="modal">
-          <h2 class="overlay__title">Settings</h2>
-          
-          <label class="overlay__label">Background: 
-            <input class="overlay__input overlay__input_background" type="range" value="50">
-          </label>
-      
-          <label class="overlay__label">Effects: 
-            <input class="overlay__input overlay__input_effects" type="range" name="" value="50">
-          </label>
-      
-          <button class="overlay__close">x</button>
-      
-        </div>
-        </div>
+      <label class="overlay__label">Background: 
+        <input class="overlay__input overlay__input_background" type="range" value="50">
+      </label>
+  
+      <label class="overlay__label">Effects: 
+        <input class="overlay__input overlay__input_effects" type="range" name="" value="50">
+      </label>
+  
+      <button class="overlay__close">
+        <svg class="close__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="#ffffff"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+      </button>
     </div>
+
+    <div class="play">
+      <button class="resume">resume</button>
+    </div>
+  </div>
+
+  <div class="container">
+    
+    <footer class="footer">
+      <a href="https://github.com/salamatinlefff" class="github" target="blank">@salamatinlefff</a>
+      <span class="year">2022</span>
+      <a href="https://rs.school/js-stage0/" class="rs_link" target="blank"></a>
+    </footer>
+  </div>
+
 </body>
 </html>

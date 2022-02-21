@@ -1,6 +1,8 @@
 
 html {
   box-sizing: border-box;
+  user-select: none;
+  letter-spacing: 1.5px;
 }
 
 * {
@@ -12,13 +14,15 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  gap: 0 100px;
-  min-height: 100vh;
+  align-content: space-between;
+  gap: 50px 100px;
+  max-height: 1024px;
+  height: 100vh;
   font-family: 'Open Sans', sans-serif;
   font-size: 25px;
   font-weight: 600;
   color: #f7f3f3;
-  background-color: #4d3e3e;
+  background-color: #dbd8d8;
 }
 
 a {
@@ -43,15 +47,13 @@ img {
   max-width: 45px;
 }
 
-.app__wrapper {
-
-}
-
 .container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   max-width: 1500px;
   min-width: 320px;
+  height: 100%;
   width: 100%;
   margin: 0 auto;
   padding: 0 30px;
