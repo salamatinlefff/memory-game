@@ -11,7 +11,14 @@ export const deleteLayout = () => {
 
   [sidebar, homePage, gamePage, asideResults].forEach( element => {
     if(element) {
-      element.remove()
+      if(element.classList.contains('main_active')) {
+        element.classList.remove('main_active');
+        setTimeout( () => {
+          element.remove();
+        }, 300)
+      } else {
+        element.remove();
+      }
     } else {
       return
     }
@@ -22,7 +29,13 @@ export const addLayout = (data) => {
   const container = document.querySelector('.container');
 
   data.forEach( (element) => {
-      container.append(element)
+    container.append(element)
+    if(element.classList.contains('main')) {
+      setTimeout( () => {
+        element.classList.add('main_active')
+      }, 200)
+      return
+    }
   });
 }
 
@@ -153,8 +166,10 @@ export const gamePage = () => {
   const cardsList = document.createElement('ul');
   cardsList.className = 'cards';
 
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
+  arr.sort( () => Math.random() > 0.5 ? 1 : -1);
   const cards = [];
-  for(let i = 1; i <= 16; i += 1) {
+  for(let i = 0; i < 16; i += 1) {
     const card = document.createElement('li');
     card.className = 'card';
     card.innerHTML = `
@@ -162,12 +177,12 @@ export const gamePage = () => {
     <img src="./assets/img/que_icon.svg">
     </div>
     <div class="view view_back">
-    <img class="back_img" src="./assets/img/img-${i}.png">
+    <img class="back_img" src="./assets/img/img-${arr[i]}.png">
     </div>
     `
     cards.push(card)
   }
-
+  
   const sidebar = document.createElement('div');
   sidebar.className = 'sidebar';
   sidebar.innerHTML = `        
@@ -208,7 +223,6 @@ export const gamePage = () => {
 
   const restart = document.querySelector('.restart');
   restart.classList.add('restart_active');
-
   cardsList.append(...cards)
   gameWrapper.append(cardsList)
   gamePage.append(gameWrapper)

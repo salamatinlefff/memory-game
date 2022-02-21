@@ -65,6 +65,7 @@ export const headerEvents = () => {
   });
 
   home.addEventListener('click', () => {
+
     audio.click.pause();
     audio.click.currentTime = 0;
     audio.click.play();

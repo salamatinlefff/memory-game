@@ -1,15 +1,16 @@
 .main {
   position: absolute;
   left: 50%;
-  transform: translateX(-40%);
+  order: 2;
   display: flex;
   flex-direction: column;
-  order: 2;
-  background-color: #dfd7d7;
-  box-shadow: 0 0 10px #461515;
-  border-radius: 10px;
-  transition: all 0.5s ease-in-out;
+  opacity: 0;
   margin-right: 30px;
+  border-radius: 10px;
+  transform: translateX(-40%);
+  box-shadow: 0 0 10px #461515;
+  background-color: #dfd7d7;
+  transition: all 0.5s ease-in-out;
 }
 
 .main__home {
@@ -22,6 +23,10 @@
   line-height: 1.5;
   letter-spacing: 2.5px;
   color: #383737;
+}
+
+.main_active {
+  opacity: 1;
 }
 
 .home__title {

@@ -5,21 +5,21 @@ import { localResults } from './localResults.js';
 import { audio, music } from './music.js';
 import { headerEvents } from './headerEvents.js';
 
-
-
 let matchedCard = 0
 let cardOne, cardTwo;
 let disableDeck = false;
 
 export const init = (page) => {
-  deleteLayout();
-  addLayout(page);
-  cards();
+    deleteLayout();
+    addLayout(page);
+    setTimeout( () => {
+      cards();
+    }, 350)
 }
 
-init(homePage());
-headerEvents();
-music();
+  init(homePage());
+  headerEvents();
+  music();
 
 function cards() {
   const cards = document.querySelectorAll('.card');
@@ -28,7 +28,7 @@ function cards() {
     card.addEventListener('click', flipCard)
   });
 
-  shuffleCard(cards)
+  
 }
 
 export const getTime = (time) => {
@@ -42,7 +42,7 @@ export function shuffleCard(cards) {
 
   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
 
-  // arr.sort( () => Math.random() > 0.5 ? 1 : -1);
+  arr.sort( () => Math.random() > 0.5 ? 1 : -1);
 
   cards.forEach( (card, index) => {
     card.classList.remove('flip');
@@ -74,7 +74,8 @@ function matchCards(imgOneSrc, imgTwoSrc, cardMain, cardSecond) {
       let result = returnSeconds();
       localResults(result);
       changeTime(true);
-
+      matchedCard = 0;
+      cardOne = cardTwo = '';
       setTimeout( () => {
         init(gamePage());
         overlay.classList.add('overlay_active');
@@ -125,11 +126,11 @@ const flipCard = ({target: clickedCard}) => {
 
 
 
-console.log(`
-  Приветики всем кто читает этот текст ✌
+// console.log(`
+//   Приветики всем кто читает этот текст ✌
 
-  "По окончанию игры выводится её результат - количество ходов, которые понадобились для завершения игры +10" - результат специально не добавляю после победы, мне не нравится эта идея)
+//   "По окончанию игры выводится её результат - количество ходов, которые понадобились для завершения игры +10" - результат специально не добавляю после победы, мне не нравится эта идея)
 
-  Если есть какие-то вопросики или предложения и пожелания, буду рад услышать в  дискорде: lefff#8383, или в телеграме: http://t.me/salamatinlefff 
-  =)
-`);
+//   Если есть какие-то вопросики или предложения и пожелания, буду рад услышать в  дискорде: lefff#8383, или в телеграме: http://t.me/salamatinlefff 
+//   =)
+// `);
