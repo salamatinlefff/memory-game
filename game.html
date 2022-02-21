@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>memory-game v0.0</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon/favicon-16x16.png">
+<link rel="manifest" href="./assets/img/favicon/site.webmanifest">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+  <!-- <link rel="preload" href="./assets/fonts/poppins-v19-latin-700.woff2" as="font" crossorigin> -->
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <link rel="stylesheet" href="./assets/style/normalize.css">
+  <link rel="stylesheet" href="./assets/style/fonts.css">
+  <link rel="stylesheet" href="./assets/style/default.css">
+  <link rel="stylesheet" href="./assets/style/header.css">
+  <link rel="stylesheet" href="./assets/style/aside.css">
+  <link rel="stylesheet" href="./assets/style/main.css">
+  <link rel="stylesheet" href="./assets/style/modal.css">
+  <link rel="stylesheet" href="./assets/style/footer.css">
+
+  <script src="./assets/scripts/app.js" type="module"></script>
+
+</head>
+<body>
+
+ <header class="header">
+    <nav class="header__navigation">
+      <ul class="navigation__list">
+        <li class="navigation__item">
+          <button class="navigation__button home">home</button>
+        </li>
+      
+        <li class="navigation__item">
+          <button class="navigation__button restart">restart
+
+        </button></li>
+        <li class="navigation__item">
+          <button class="navigation__button">top players</button>
+        </li>
+
+        <li class="navigation__item">
+          <button class="navigation__button settings">settings</button>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="mute">
+      <input class="mute__checkbox" type="checkbox" id="mute">
+      <label for="mute" class="mute__label">mute</label>
+    </div>
+  </header>
+    
+
+    <div class="container">
+    <main class="main main__game">
+        <div class="game-wrapper">
+          <ul class="cards">
+            
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-1.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-2.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-3.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-4.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-5.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-6.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-7.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-8.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-1.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-2.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-3.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-4.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-5.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-6.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-7.png">
+              </div>
+            </li>
+      
+            <li class="card">
+              <div class="view view_front">
+                <img src="./assets/img/que_icon.svg">
+              </div>
+              <div class="view view_back">
+                <img class="back_img" src="./assets/img/img-8.png">
+              </div>
+            </li>
+          </ul>
+        </div>
+      </main>
+
+      <div class="overlay">
+        <div class="modal">
+          <h2 class="overlay__title">Settings</h2>
+          
+          <label class="overlay__label">Background: 
+            <input class="overlay__input overlay__input_background" type="range" value="50">
+          </label>
+      
+          <label class="overlay__label">Effects: 
+            <input class="overlay__input overlay__input_effects" type="range" name="" value="50">
+          </label>
+      
+          <button class="overlay__close">x</button>
+      
+        </div>
+        </div>
+    </div>
+</body>
+</html>

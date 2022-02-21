@@ -1,0 +1,50 @@
+.overlay {
+  position: fixed;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  width: 400px;
+  height: 200px;
+  padding: 15px 20px;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  pointer-events: none;
+  border-radius: 10px;
+  font-size: 18px;
+  border: 5px solid #6d6b6b;
+  background-color: #242424;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.overlay__title {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.overlay__label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.overlay_active {
+  user-select: auto;
+  pointer-events: stroke;
+  opacity: 1;
+}
+
+.overlay__close {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+}
