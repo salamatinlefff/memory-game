@@ -124,8 +124,6 @@ const flipCard = ({target: clickedCard}) => {
   }
 }
 
-
-
 console.log(`
   Приветики всем кто читает этот текст ✌
 

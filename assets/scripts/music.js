@@ -32,15 +32,12 @@ export const music = () => {
     }
   });
 
-
   audio.background.addEventListener('ended', () => {
     audio.background.pause();
     audio.background.currentTime = 0;
     audio.background.play();
     audio.backgroundIsPlaying = true
   })
-
-
   
   inputEffects.addEventListener('input', () => {
     audio.changeVolume.play();
@@ -72,5 +69,4 @@ export const music = () => {
       backgroundIsPlaying = false;
     }
   })
-
 }
