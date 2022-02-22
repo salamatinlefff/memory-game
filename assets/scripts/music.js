@@ -54,9 +54,9 @@ export const music = () => {
   })
 
   muteBackground.addEventListener('change', () => {
-    audio.changeVolume.pause();
-    audio.changeVolume.currentTime = 0;
-    audio.changeVolume.play();
+    audio.click.pause();
+    audio.click.currentTime = 0;
+    audio.click.play();
     if(!backgroundIsPlaying  && inputBackground.value === '50' && muteBackground.checked) {
       audio.background.play();
       audio.background.volume = inputBackground.value / 100;
