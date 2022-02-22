@@ -36,11 +36,15 @@ export const headerEvents = () => {
   });
 
   overlay.addEventListener('click', event => {
+    const mainHome = document.querySelector('.main__home');
+
     if(event.target.classList.contains('overlay')) {
+      if(!mainHome) {
+      changeTime(false, false);
+      }
       audio.click.pause();
       audio.click.currentTime = 0;
       audio.click.play();
-      changeTime(false, false);
 
       overlay.classList.remove('overlay_active');
       modal.classList.remove('modal_active');
