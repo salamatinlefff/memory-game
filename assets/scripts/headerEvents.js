@@ -25,6 +25,8 @@ export const headerEvents = () => {
     });
 
   settings.addEventListener('click', () => {
+    changeTime(false, true);
+
     audio.click.pause();
     audio.click.currentTime = 0;
     audio.click.play();
@@ -38,6 +40,7 @@ export const headerEvents = () => {
       audio.click.pause();
       audio.click.currentTime = 0;
       audio.click.play();
+      changeTime(false, false);
 
       overlay.classList.remove('overlay_active');
       modal.classList.remove('modal_active');

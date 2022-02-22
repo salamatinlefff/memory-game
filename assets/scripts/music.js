@@ -3,7 +3,7 @@ export const audio = {
   positiveResponse: new Audio(`./assets/audio/positive1.mp3`),
   negativeResponse: new Audio(`./assets/audio/negative4.mp3`),
   victory: new Audio(`./assets/audio/victory.mp3`),
-  click: new Audio('./assets/audio/click2.mp3'),
+  click: new Audio('./assets/audio/click2-min.mp3'),
   changeVolume: new Audio('./assets/audio/change_volume.mp3'),
 }
 
@@ -28,6 +28,8 @@ export const music = () => {
     muteBackground.checked = true;
   
     if(inputBackground.value <= 0) {
+    console.log(' :', );
+    console.log(' :', );
       muteBackground.checked = false;
     }
   });
@@ -40,10 +42,11 @@ export const music = () => {
   })
   
   inputEffects.addEventListener('input', () => {
-    audio.changeVolume.play();
+    audio.click.play();
 
     inputEffects.style.background = `linear-gradient(to right, rgb(255, 76, 246) ${inputEffects.value}%, rgba(255, 255, 255, 1) ${inputEffects.value}%`;
-
+    
+    audio.click.volume = inputEffects.value / 100;
     audio.changeVolume.volume = inputEffects.value / 100;
     audio.victory.volume = inputEffects.value / 100;
     audio.positiveResponse.volume = inputEffects.value / 100;

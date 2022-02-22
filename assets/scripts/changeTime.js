@@ -7,6 +7,7 @@ export const addZero = (int) => {
 let interval;
 let seconds = 0;
 let minutes = 0;
+let isPause = false;
 
 export const returnSeconds = () => {
   return seconds
@@ -19,17 +20,29 @@ const stopTimer = (interval, timeText) => {
   timeText.textContent = '00:00'
 }
 
-const timer = (timeText) => {
-  seconds += 1;
+const viewTime = (timeText) => {
   minutes = seconds / 60;
   timeText.textContent = `${addZero(minutes)}:${addZero(seconds % 60)}`;
 }
 
-export const changeTime = (endGame) => {
+const timer = (timeText, isPause) => {
+  if(isPause) {
+    seconds += 0;
+    viewTime(timeText);
+    return
+  } else {
+    seconds += 1;
+    viewTime(timeText);
+  }
+}
+
+export const changeTime = (endGame, isPause = false) => {
+console.log('isPause :', isPause);
   const timeText = document.querySelector('.time__text');
 
   if(!endGame) {
-    interval = setInterval( timer, 1000, timeText);
+    clearInterval(interval);
+    interval = setInterval( timer, 1000, timeText, isPause);
   } else if(endGame) {
     stopTimer(interval, timeText);
   }
