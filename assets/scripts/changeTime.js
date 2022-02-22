@@ -37,7 +37,6 @@ const timer = (timeText, isPause) => {
 }
 
 export const changeTime = (endGame, isPause = false) => {
-console.log('isPause :', isPause);
   const timeText = document.querySelector('.time__text');
 
   if(!endGame) {
