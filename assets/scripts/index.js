@@ -70,14 +70,15 @@ function matchCards(imgOneSrc, imgTwoSrc, cardMain, cardSecond) {
       const resume = document.querySelector('.resume');
 
       audio.victory.play();
+      changeTime(false, true);
 
       let result = returnSeconds();
       localResults(result);
-      changeTime(true);
       matchedCard = 0;
       cardOne = cardTwo = '';
       setTimeout( () => {
         init(gamePage());
+        changeTime(true);
         overlay.classList.add('overlay_active');
         resume.classList.add('resume_active');
       }, 3000)
