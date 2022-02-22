@@ -8,8 +8,8 @@
   margin-right: 30px;
   border-radius: 10px;
   transform: translateX(-40%);
-  box-shadow: 0 0 10px #461515;
-  background-color: #dfd7d7;
+  box-shadow: 0 0 10px #011c58, 0 0 15px #aba3f5;
+  background-color: #fffdeb;
   transition: all 0.5s ease-in-out;
 }
 
@@ -32,7 +32,7 @@
 .home__title {
   margin-bottom: 20px;
   text-align: center;
-  color: #9e0aa3;
+  color: #e78300;
   font-size: 32px;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .home__text-select {
-  color: #1317eb;
+  color: #e78300;
   font-size: 18px;
 }
 
@@ -106,7 +106,6 @@
   width: 400px;
   height: 400px;
   padding: 25px;
-  background-color: #d8c8c8;
   border-radius: 10px;
   box-shadow: 0 0 10px #461515;
 }

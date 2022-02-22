@@ -13,8 +13,8 @@
 .aside {
   border-radius: 20px;
   margin: 0 30px;
-  box-shadow: 0 0 20px #5f2e43;
-  background-color: #5f2e43;
+  box-shadow: 0 0 20px #092f86;
+  background-color: #2b3e69;
 }
 
 .aside__time {
@@ -30,18 +30,18 @@
 }
 
 .time__name {
-  color: #14e9d7;
+  color: #ffffff;
   font-size: 20px;
   letter-spacing: 2px;
   margin-bottom: 5px;
 }
 
 .time__title {
-  color: #ffe23d;
+  color: #e78300;
 }
 
 .time__text {
-  color: #fdccee;
+  color: #ffffff;
 }
 
 .aside__best {
@@ -57,7 +57,7 @@
 }
 
 .best__title {
-  color: #14e9d7;
+  color: #e78300;
 }
 
 .aside__results {
@@ -69,7 +69,7 @@
 }
 
 .results__title {
-  color: #14e9d7;
+  color: #e78300;
   font-size: 28px;
 }
 

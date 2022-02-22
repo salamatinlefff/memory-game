@@ -7,8 +7,8 @@
   gap: 20px;
   width: 100%;
   max-height: 80px;
-  box-shadow: 0 0 20px #5f2e43;
-  background-color: #5f2e43;
+  box-shadow: 0 0 20px #092f86;
+  background-color: #2b3e69;
 }
 
 .navigation__list {
@@ -26,10 +26,11 @@
   border: none;
   opacity: 1;
   border-radius: 10px;
-  box-shadow: 0px 0px 5px #ffffff;
+  color: #383737;
+  box-shadow: 0px 0px 10px #ffffff;
   transform: scale(1);
   transition: transform 0.1s ease-in-out;
-  background-color: #7e5e7e;
+  background-color: #e78300;
   transition: all 0.3s ease-in-out;
 }
 
@@ -45,8 +46,7 @@
 }
 
 .navigation__button:hover {
-  color: #383737;
-  background-color: #d4d3d3;
+  color: #ffffff;
 }
 
 .navigation__button:active {
@@ -82,7 +82,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: #f10cc0;
+  background-color: #e78300;
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0px 1px 1px rgba(69, 2, 2, 0.3);
@@ -90,7 +90,7 @@
 }
 
 .mute__checkbox:hover+.mute__label::before{
-  background-color: #b80d77;
+  background-color: #ce7500;
 }
 
 .mute__label::before {

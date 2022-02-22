@@ -28,7 +28,7 @@
   pointer-events: none;
   border-radius: 10px;
   font-size: 18px;
-  background-color: #362d33;
+  background-color: #2b3e69;
   opacity: 0;
   box-shadow: 0 0 20px #ffffff;
   transition: opacity 0.3s ease-in-out;
@@ -86,22 +86,16 @@
   transition-duration: width, opacity, margin-left;
 }
 
-  .overlay__input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    background-color: rgb(66, 12, 64);
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 50%;
-    transition: all 0.2s ease-in-out;
-  }
-
-  .overlay__input::-webkit-slider-thumb:hover {
-    background-color: rgb(100, 3, 3);
-    border: 1px solid rgb(255, 255, 255);
-  }
-
+.overlay__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(52, 44, 168);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
 
 .play {
   width: 100%;

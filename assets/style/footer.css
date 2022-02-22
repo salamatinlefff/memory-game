@@ -5,24 +5,40 @@
   align-items: flex-end;
   align-self: flex-end;
   justify-content: space-between;
-  padding: 25px 5px 5px;
-  color: #b80d77;
+  padding: 25px 5px 15px;
+  color: #e78300;
 }
 
 .github {
-font-size: 14px;
+font-size: 20px;
+transition: all 0.3s ease-in-out;
 }
 
+.github:hover {
+  color: #2b3e69;
+  }
+
 .year {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 
 .rs_link {
   display: block;
-  width: 100px;
+  width: 150px;
   height: 40px;
+  padding: 10px;
   background-image: url(../img/rs_school_js.svg);
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 100px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.rs_link:hover {
+  box-shadow: 0 0 15px rgba(43, 62, 105, 0.3);
+  background-color: rgba(43, 62, 105, 0.1);
 }

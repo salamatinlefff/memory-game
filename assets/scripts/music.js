@@ -12,16 +12,16 @@ export const music = () => {
   const inputEffects = document.querySelector('.overlay__input_effects');
   const muteBackground = document.getElementById('mute');
 
-  inputBackground.style.background = `linear-gradient(to right, rgb(255, 76, 246) ${inputBackground.value}%, rgba(255, 255, 255, 1) ${inputBackground.value}%`;
+  inputBackground.style.background = `linear-gradient(to right, #e78300 ${inputBackground.value}%, #ffffff ${inputBackground.value}%`;
 
-  inputEffects.style.background = `linear-gradient(to right, rgb(255, 76, 246) ${inputEffects.value}%, rgba(255, 255, 255, 1) ${inputEffects.value}%`;
+  inputEffects.style.background = `linear-gradient(to right, #e78300 ${inputEffects.value}%, #ffffff ${inputEffects.value}%`;
 
   let backgroundIsPlaying = false;
   
   inputBackground.addEventListener('input', () => {
     audio.background.play();
 
-    inputBackground.style.background = `linear-gradient(to right, rgb(255, 76, 246) ${inputBackground.value}%, rgba(255, 255, 255, 1) ${inputBackground.value}%`;
+    inputBackground.style.background = `linear-gradient(to right, #e78300 ${inputBackground.value}%, #ffffff ${inputBackground.value}%`;
 
     audio.background.volume = inputBackground.value / 100
     backgroundIsPlaying = true;
@@ -44,7 +44,7 @@ export const music = () => {
   inputEffects.addEventListener('input', () => {
     audio.click.play();
 
-    inputEffects.style.background = `linear-gradient(to right, rgb(255, 76, 246) ${inputEffects.value}%, rgba(255, 255, 255, 1) ${inputEffects.value}%`;
+    inputEffects.style.background = `linear-gradient(to right, #e78300 ${inputEffects.value}%, #ffffff ${inputEffects.value}%`;
     
     audio.click.volume = inputEffects.value / 100;
     audio.changeVolume.volume = inputEffects.value / 100;
