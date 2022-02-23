@@ -55,23 +55,28 @@
 
   <div class="overlay">
     <div class="overlay__modal modal">
-      <h2 class="overlay__title">Settings</h2>
+      <h2 class="modal__title">Settings</h2>
       
       <label class="modal__label">Background: 
         <input class="modal__input modal__input_background" type="range" value="50">
       </label>
   
       <label class="modal__label">Effects: 
-        <input class="modal__input modal__input_effects" type="range" name="" value="50">
+        <input class="modal__input modal__input_effects" type="range" value="50">
       </label>
 
       <label class="modal__label">Correct select: 
-        <input class="modal__input modal__input_correct" type="range" name="" value="20">
+        <input class="modal__input modal__input_correct" type="range" value="20">
       </label>
 
       <label class="modal__label">Incorrect select: 
-        <input class="modal__input modal__input_incorrect" type="range" name="" value="10">
+        <input class="modal__input modal__input_incorrect" type="range" value="10">
       </label>
+
+      <label class="modal__label modal__label_change-name">Change name: 
+        <input class="modal__input modal__input_change-name" type="text" placeholder="new name">
+      </label>
+      <button class="modal__button_change-name">change name</button>
   
       <button class="modal__close">
         <svg class="close__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="#ffffff"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>

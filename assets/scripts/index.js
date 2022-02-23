@@ -4,6 +4,7 @@ import { changeTime, returnSeconds, viewTime } from './changeTime.js';
 import { localResults } from './localResults.js';
 import { audio, music } from './music.js';
 import { headerEvents } from './headerEvents.js';
+import { changeName } from './changeName.js';
 
 let matchedCard = 0
 let cardOne, cardTwo;
@@ -18,6 +19,7 @@ export const init = (page) => {
   init(homePage());
   headerEvents();
   music();
+  changeName();
 
 function cards() {
   const cards = document.querySelectorAll('.card');
