@@ -63,9 +63,15 @@ export const headerEvents = () => {
   })
 
   overlayClose.addEventListener('click', () => {
+    const mainHome = document.querySelector('.main__home');
+    
     audio.click.pause();
     audio.click.currentTime = 0;
     audio.click.play();
+
+    if(!mainHome) {
+      changeTime(false, false);
+    }
 
     overlay.classList.remove('overlay_active');
     modal.classList.remove('modal_active');
