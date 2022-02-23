@@ -4,6 +4,15 @@ const changeTextAndLocalAndReset = (changeNameInput, timeName) => {
   changeNameInput.value = '';
 }
 
+const animationIncorrect = (changeNameInput) => {
+  changeNameInput.classList.remove('modal__input_change-name_empty');
+  changeNameInput.classList.add('modal__input_change-name_empty');
+
+  setTimeout(() => {
+    changeNameInput.classList.remove('modal__input_change-name_empty');
+  }, 500)
+}
+
 export const changeName = () => {
   const changeNameInput = document.querySelector('.modal__input_change-name');
   const changeNameButton = document.querySelector('.modal__button_change-name');
@@ -11,11 +20,19 @@ export const changeName = () => {
 
   changeNameInput.addEventListener('keydown', event => {
     if(event.key === 'Enter') {
-      changeTextAndLocalAndReset(changeNameInput, timeName);
+      if(changeNameInput.value !== '') {
+        changeTextAndLocalAndReset(changeNameInput, timeName);
+      } else {
+        animationIncorrect(changeNameInput);
+      }
     }
   })
 
   changeNameButton.addEventListener('click', () => {
-    changeTextAndLocalAndReset(changeNameInput, timeName);
+    if(changeNameInput.value !== '') {
+      changeTextAndLocalAndReset(changeNameInput, timeName);
+    } else {
+      animationIncorrect(changeNameInput);
+    }
   })
 }

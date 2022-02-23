@@ -156,8 +156,13 @@
   line-height: 1.5;
   letter-spacing: 2px;
   border-radius: 10px;
-  box-shadow: 0 0 5px #ffffff;
+  border: 0;
+  outline: 1px solid #ffffff;
   background-color: transparent;
+}
+
+.modal__input_change-name_empty {
+  animation: incorrect 0.7s linear;
 }
 
 .modal__input_change-name::placeholder {
