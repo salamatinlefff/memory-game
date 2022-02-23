@@ -6,13 +6,10 @@
   width: max-content;
   height: 400px;
   gap: 50px;
-  order: 1;
-  padding: 0 30px;
 }
 
 .aside {
   border-radius: 20px;
-  margin: 0 30px;
   box-shadow: 0 0 20px #092f86;
   background-color: #2b3e69;
 }
@@ -63,7 +60,6 @@
 .aside__results {
   display: flex;
   flex-direction: column;
-  order: 3;
   height: 400px;
   padding: 20px;
 }
@@ -92,4 +88,14 @@
 .results__item::marker {
   color: #ffffff;
   content: '😎';
+}
+
+@media (max-width: 720px) {
+  .sidebar {
+    order: 3;
+  }
+
+  .aside__best {
+    order: 3;
+  }
 }

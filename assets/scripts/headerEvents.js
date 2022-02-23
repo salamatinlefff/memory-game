@@ -1,7 +1,31 @@
-import { init } from './index.js';
+import { init, isStartedGame, reset } from './index.js';
 import { changeTime } from './changeTime.js';
 import { gamePage, homePage } from './layout.js';
 import { audio } from './music.js';
+
+const ifGameAndStartedGame = () => {
+  const mainHome = document.querySelector('.main__home');
+
+  if(!mainHome) {
+    if(isStartedGame()) {
+      return changeTime(false, false);
+    } else {
+      return changeTime(false, true);
+    }
+  }
+}
+
+export const audioClick = () => {
+  audio.click.pause();
+  audio.click.currentTime = 0;
+  audio.click.play();
+}
+
+const closeOverlay = (overlay, modal, result) => {
+  overlay.classList.remove('overlay_active');
+  modal.classList.remove('modal_active');
+  result.classList.remove('result_active');
+}
 
 export const headerEvents = () => {
   const restart = document.querySelector('.restart');
@@ -9,80 +33,46 @@ export const headerEvents = () => {
   const settings = document.querySelector('.settings');
   const overlay = document.querySelector('.overlay');
   const modal = document.querySelector('.modal');
-  const overlayClose = document.querySelector('.overlay__close');
-  const resume = document.querySelector('.resume');
+  const result = document.querySelector('.result');
+  const overlayClose = document.querySelector('.modal__close');
+  const resultButton = document.querySelector('.result__button');
 
   restart.addEventListener('click', () => {
-      audio.click.pause();
-      audio.click.currentTime = 0;
-      audio.click.play();
-
-      overlay.classList.add('overlay_active');
-      resume.classList.add('resume_active');
-
-      init(gamePage());
-      changeTime(true);
+    audioClick();
+    reset();
+    init(gamePage());
     });
 
   settings.addEventListener('click', () => {
     changeTime(false, true);
-
-    audio.click.pause();
-    audio.click.currentTime = 0;
-    audio.click.play();
+    audioClick()
 
     overlay.classList.add('overlay_active');
     modal.classList.add('modal_active');
   });
 
   overlay.addEventListener('click', event => {
-    const mainHome = document.querySelector('.main__home');
-
     if(event.target.classList.contains('overlay')) {
-      if(!mainHome) {
-      changeTime(false, false);
-      }
-      audio.click.pause();
-      audio.click.currentTime = 0;
-      audio.click.play();
-
-      overlay.classList.remove('overlay_active');
-      modal.classList.remove('modal_active');
+      ifGameAndStartedGame();
+      audioClick();
+      closeOverlay(overlay, modal, result);
     }
   });
-
-  resume.addEventListener('click', () => {
-    audio.click.pause();
-    audio.click.currentTime = 0;
-    audio.click.play();
-
-    resume.classList.remove('resume_active');
-    overlay.classList.remove('overlay_active');
-    changeTime(true);
-    changeTime(false);
-  })
 
   overlayClose.addEventListener('click', () => {
-    const mainHome = document.querySelector('.main__home');
-    
-    audio.click.pause();
-    audio.click.currentTime = 0;
-    audio.click.play();
-
-    if(!mainHome) {
-      changeTime(false, false);
-    }
-
-    overlay.classList.remove('overlay_active');
-    modal.classList.remove('modal_active');
+    audioClick();
+    ifGameAndStartedGame();
+    closeOverlay(overlay, modal, result);
   });
 
+  resultButton.addEventListener('click', () => {
+    audioClick();
+    closeOverlay(overlay, modal, result);
+  })
+
   home.addEventListener('click', () => {
-
-    audio.click.pause();
-    audio.click.currentTime = 0;
-    audio.click.play();
-
+    reset();
+    audioClick()
     init(homePage());
     changeTime(true);
   })

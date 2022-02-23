@@ -1,13 +1,12 @@
 
 export const addZero = (int) => {
   if(int < 10) return `0${parseInt(int)}`
-  return `${int}`
+  return `${parseInt(int)}`
 };
 
 let interval;
 let seconds = 0;
 let minutes = 0;
-let isPause = false;
 
 export const returnSeconds = () => {
   return seconds
@@ -20,7 +19,7 @@ const stopTimer = (interval, timeText) => {
   timeText.textContent = '00:00'
 }
 
-const viewTime = (timeText) => {
+export const viewTime = (timeText) => {
   minutes = seconds / 60;
   timeText.textContent = `${addZero(minutes)}:${addZero(seconds % 60)}`;
 }

@@ -1,7 +1,7 @@
-import { addZero, changeTime } from './changeTime.js';
-import { init } from './index.js';
+import { addZero } from './changeTime.js';
+import { audioClick } from './headerEvents.js';
+import { init, reset } from './index.js';
 import { localName } from './localName.js';
-import { audio } from './music.js';
 
 export const deleteLayout = () => {
   const sidebar = document.querySelector('.sidebar');
@@ -13,9 +13,7 @@ export const deleteLayout = () => {
     if(element) {
       if(element.classList.contains('main_active')) {
         element.classList.remove('main_active');
-        setTimeout( () => {
-          element.remove();
-        }, 300)
+        element.remove();
       } else {
         element.remove();
       }
@@ -100,22 +98,23 @@ export const homePage = () => {
     });
 
   startButton.addEventListener('click', () => {
-    const overlay = document.querySelector('.overlay');
-    const resume = document.querySelector('.resume');
+    reset();
 
     if(homeForm[0].value !== '' || localStorage.getItem('memory-game-lefff_name')) {
-      audio.click.pause();
-      audio.click.currentTime = 0;
-      audio.click.play();
+      audioClick();
       setTimeout( () => {
         init(gamePage());
-        overlay.classList.add('overlay_active');
-        resume.classList.add('resume_active');
-        changeTime(true)
-      }, 1000)
+      }, 300)
     } else {
       timeName.textContent = 'Username';
       homeForm[0].focus()
+      if(homeForm[0].classList.contains('input_incorrect')) {
+        homeForm[0].classList.remove('input_incorrect');
+      }
+      setTimeout( () => {
+        homeForm[0].classList.add('input_incorrect');
+      }, 10)
+      audioClick();
       return
     }
   })

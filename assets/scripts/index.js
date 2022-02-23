@@ -1,6 +1,6 @@
 
 import { gamePage, addLayout, deleteLayout, homePage } from './layout.js';
-import { changeTime, returnSeconds } from './changeTime.js';
+import { changeTime, returnSeconds, viewTime } from './changeTime.js';
 import { localResults } from './localResults.js';
 import { audio, music } from './music.js';
 import { headerEvents } from './headerEvents.js';
@@ -8,15 +8,13 @@ import { headerEvents } from './headerEvents.js';
 let matchedCard = 0
 let cardOne, cardTwo;
 let disableDeck = false;
+let isStarted = false;
 
 export const init = (page) => {
     deleteLayout();
     addLayout(page);
-    setTimeout( () => {
-      cards();
-    }, 350)
+    cards();
 }
-
   init(homePage());
   headerEvents();
   music();
@@ -27,88 +25,88 @@ function cards() {
   cards.forEach( card => {
     card.addEventListener('click', flipCard)
   });
-
-  
 }
-
 export const getTime = (time) => {
   return time
 }
 
-export function shuffleCard(cards) {
-  matchedCard = 0
-  cardOne, cardTwo = '';
-  disableDeck = false;
-
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
-
-  arr.sort( () => Math.random() > 0.5 ? 1 : -1);
-
-  cards.forEach( (card, index) => {
-    card.classList.remove('flip');
-
-    let ImgTag = card.querySelector('.back_img');
-    ImgTag.src = `./assets/img/img-${arr[index]}.png`;
-
-    card.addEventListener('click', flipCard);
-  })
+export const isStartedGame = () => {
+  return isStarted
 }
 
-function matchCards(imgOneSrc, imgTwoSrc, cardMain, cardSecond) {
-  if(imgOneSrc === imgTwoSrc) {
-    matchedCard += 1;
-    
-    audio.positiveResponse.pause();
-    audio.positiveResponse.currentTime = 0;
-    audio.positiveResponse.play();
+export const reset = () => {
+  matchedCard = 0
+  cardOne = null
+  cardTwo = null
+  disableDeck = false;
+  isStarted = false;
+  changeTime(true)
+}
 
-    cardMain.classList.add('win');
-    cardSecond.classList.add('win');
+const showResult = () => {
+  const overlay = document.querySelector('.overlay');
+  const result = document.querySelector('.result');
+  const resultText = document.querySelector('.result__text');
 
-    if(matchedCard === 8) {
-      const overlay = document.querySelector('.overlay');
-      const resume = document.querySelector('.resume');
+  viewTime(resultText);
 
-      audio.victory.play();
-      changeTime(false, true);
+  overlay.classList.add('overlay_active');
+  result.classList.add('result_active');
+}
 
-      let result = returnSeconds();
-      localResults(result);
-      matchedCard = 0;
+export function matchCards(imgOneSrc, imgTwoSrc, cardMain, cardSecond) {
+    if(imgOneSrc === imgTwoSrc) {
+      matchedCard += 1;
+      
+      audio.positiveResponse.pause();
+      audio.positiveResponse.currentTime = 0;
+      audio.positiveResponse.play();
+  
+      cardMain.classList.add('win');
+      cardSecond.classList.add('win');
+  
+      if(matchedCard === 8) {
+        audio.victory.play();
+        showResult();
+        changeTime(false, true);
+  
+        let result = returnSeconds();
+        localResults(result);
+        setTimeout( () => {
+          reset();
+          init(gamePage());
+        },1000)
+  
+      } else {
+        cardOne.removeEventListener('click', flipCard);
+        cardTwo.removeEventListener('click', flipCard);
+      }
       cardOne = cardTwo = '';
-      setTimeout( () => {
-        init(gamePage());
-        changeTime(true);
-        overlay.classList.add('overlay_active');
-        resume.classList.add('resume_active');
-      }, 3000)
-
-    } else {
-      cardOne.removeEventListener('click', flipCard);
-      cardTwo.removeEventListener('click', flipCard);
+      return disableDeck = false;
     }
-    cardOne = cardTwo = '';
-    return disableDeck = false;
-  }
-
-  setTimeout( () => {
-    audio.negativeResponse.pause()
-    audio.negativeResponse.currentTime = 0;
-    audio.negativeResponse.play()
-    cardOne.classList.add('snake');
-    cardTwo.classList.add('snake');
-  }, 200);
-
-  setTimeout( () => {
-    cardOne.classList.remove('snake','win', 'flip');
-    cardTwo.classList.remove('snake','win', 'flip');
-    cardOne = cardTwo = '';
-    disableDeck = false
-  }, 700)
-
+  
+    setTimeout( () => {
+      audio.negativeResponse.pause()
+      audio.negativeResponse.currentTime = 0;
+      audio.negativeResponse.play()
+      cardOne.classList.add('snake');
+      cardTwo.classList.add('snake');
+    }, 200);
+  
+    setTimeout( () => {
+      cardOne.classList.remove('snake','win', 'flip');
+      cardTwo.classList.remove('snake','win', 'flip');
+      cardOne = cardTwo = '';
+      disableDeck = false
+    }, 500)
 }
 
 const flipCard = ({target: clickedCard}) => {
+  if(!isStarted) {
+    changeTime(false, false)
+    isStarted = true
+  }
+
   if(cardOne !== clickedCard  && !disableDeck) {
     clickedCard.classList.add('flip');
   
@@ -124,12 +122,3 @@ const flipCard = ({target: clickedCard}) => {
     matchCards(cardOneImg, cardTwoImg, cardOne, cardTwo)
   }
 }
-
-console.log(`
-  Приветики всем кто читает этот текст ✌
-
-  "По окончанию игры выводится её результат - количество ходов, которые понадобились для завершения игры +10" - результат специально не добавляю после победы, мне не нравится эта идея)
-
-  Если есть какие-то вопросики или предложения и пожелания, буду рад услышать в  дискорде: lefff#8383, или в телеграме: http://t.me/salamatinlefff 
-  =)
-`);
