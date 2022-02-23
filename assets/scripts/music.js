@@ -6,33 +6,30 @@ export const audio = {
   click: new Audio('./assets/audio/click2-min_1.mp3'),
 }
 
-const startVolumeAudio = (inputBackground, inputEffects, inputCorrect, inputIncorrect) => {
+const startVolumeAudio = (inputBackground, inputEffects, inputCorrectIncorrect) => {
   audio.background.volume = inputBackground.value / 100;
   audio.click.volume = inputEffects.value / 100;
   audio.victory.volume = inputEffects.value / 100;
-  audio.positiveResponse.volume = inputCorrect.value / 100;
-  audio.negativeResponse.volume = inputIncorrect.value / 100;
+  audio.positiveResponse.volume = inputCorrectIncorrect.value / 100;
+  audio.negativeResponse.volume = inputCorrectIncorrect.value / 100;
 }
 
-const startInputColors = (inputBackground, inputEffects, inputCorrect, inputIncorrect) => {
+const startInputColors = (inputBackground, inputEffects, inputCorrectIncorrect) => {
   inputBackground.style.background = `linear-gradient(to right, #e78300 ${inputBackground.value}%, #ffffff ${inputBackground.value}%`;
 
   inputEffects.style.background = `linear-gradient(to right, #e78300 ${inputEffects.value}%, #ffffff ${inputEffects.value}%`;
 
-  inputIncorrect.style.background = `linear-gradient(to right, #e78300 ${inputIncorrect.value}%, #ffffff ${inputIncorrect.value}%`;
-
-  inputCorrect.style.background = `linear-gradient(to right, #e78300 ${inputCorrect.value}%, #ffffff ${inputCorrect.value}%`;
+  inputCorrectIncorrect.style.background = `linear-gradient(to right, #e78300 ${inputCorrectIncorrect.value}%, #ffffff ${inputCorrectIncorrect.value}%`;
 }
 
 export const music = () => {
   const inputBackground = document.querySelector('.modal__input_background');
   const inputEffects = document.querySelector('.modal__input_effects');
-  const inputCorrect = document.querySelector('.modal__input_correct');
-  const inputIncorrect = document.querySelector('.modal__input_incorrect');
+  const inputCorrectIncorrect = document.querySelector('.modal__input_correct-incorrect');
   const muteBackground = document.getElementById('mute');
 
-  startVolumeAudio(inputBackground, inputEffects, inputCorrect, inputIncorrect);
-  startInputColors(inputBackground, inputEffects, inputCorrect, inputIncorrect)
+  startVolumeAudio(inputBackground, inputEffects, inputCorrectIncorrect);
+  startInputColors(inputBackground, inputEffects, inputCorrectIncorrect)
 
   let backgroundIsPlaying = false;
   
@@ -67,20 +64,13 @@ export const music = () => {
     audio.positiveResponse.volume = inputEffects.value / 100;
   })
 
-  inputCorrect.addEventListener('input', () => {
-    audio.positiveResponse.play();
-
-    inputCorrect.style.background = `linear-gradient(to right, #e78300 ${inputCorrect.value}%, #ffffff ${inputCorrect.value}%`;
-    
-    audio.positiveResponse.volume = inputCorrect.value / 100;
-  })
-
-  inputIncorrect.addEventListener('input', () => {
+  inputCorrectIncorrect.addEventListener('input', () => {
     audio.negativeResponse.play();
 
-    inputIncorrect.style.background = `linear-gradient(to right, #e78300 ${inputIncorrect.value}%, #ffffff ${inputIncorrect.value}%`;
+    inputCorrectIncorrect.style.background = `linear-gradient(to right, #e78300 ${inputCorrectIncorrect.value}%, #ffffff ${inputCorrectIncorrect.value}%`;
     
-    audio.negativeResponse.volume = inputIncorrect.value / 100;
+    audio.positiveResponse.volume = inputCorrectIncorrect.value / 100;
+    audio.negativeResponse.volume = inputCorrectIncorrect.value / 100;
   })
 
   muteBackground.addEventListener('change', () => {

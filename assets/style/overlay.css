@@ -19,9 +19,11 @@
   display: flex;
   flex-direction: column;
   align-items: left;
-  justify-content: flex-start;
-  width: 400px;
-  height: 370px;
+  justify-content: center;
+  gap: 10px;
+  max-width: 400px;
+  width: 100%;
+  max-height: 370px;
   padding: 20px 25px;
   transform: translate(-50%, -50%);
   user-select: none;
@@ -43,9 +45,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* max-width: 100px; */
   margin-bottom: 20px;
   font-size: 18px;
-  height: 25px;
+  /* height: 25px; */
+}
+
+.modal__label_text {
+  width: 170px;
 }
 
 .overlay_active {
@@ -69,6 +76,14 @@
   background-color: transparent;
   border: 0;
 }
+
+/* .modal__label_text {
+  max-width: 70px;
+  width: 100%;
+  height: 100%;
+  max-height: 100px;
+  display: flex;
+} */
 
 .modal__input {
   appearance: none;

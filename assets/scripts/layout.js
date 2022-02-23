@@ -71,12 +71,13 @@ export const homePage = () => {
   timeText.textContent = '00:00';
 
 
+  const localNickname = localStorage.getItem('memory-game-lefff_name');
   const homePage = document.createElement('main');
   homePage.className = 'main main__home home';
   homePage.innerHTML = `
-  <h2 class="home__title">Hello player.</h2>
-        <p class="home__text">I am glad to see you to <span class="home__text-select">memory-game v1.0012</span></p>
-        <p class="home__text"><span class="home__text-select">Rules:</span> To find all matching pictures in the minimum time and have fun :)</p>
+  <h2 class="home__title">Hello, ${localNickname ? localNickname : 'Player'}!</h2>
+        <p class="home__text">Welcome to <span class="home__text-select">the memory-game v1.020</span></p>
+        <p class="home__text"><span class="home__text-select">Rules:</span> Find all matching pictures with the minimum of time and have fun 🙃</p>
   `;
 
   const homeForm = document.createElement('form');
@@ -93,8 +94,14 @@ export const homePage = () => {
 
   homeForm.addEventListener('submit', (event) => {
     event.preventDefault();
+    const homeTitle = document.querySelector('.home__title');
   
-      timeName.textContent = homeForm[0] === '' ? 'Username' : localName(homeForm[0].value);
+      timeName.textContent = homeForm[0].value === '' ? 'Username' : localName(homeForm[0].value);
+      if(homeForm[0].value !== '' && typeof homeForm[0].value === 'string') {
+        homeTitle.innerHTML = `Hello, ${localStorage.getItem('memory-game-lefff_name')}!`;
+      } else {
+        homeTitle.textContent = 'Hello, Player!'
+      }
     });
 
   startButton.addEventListener('click', () => {

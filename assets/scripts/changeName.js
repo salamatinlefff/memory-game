@@ -1,6 +1,13 @@
-const changeTextAndLocalAndReset = (changeNameInput, timeName) => {
-  timeName.textContent = changeNameInput.value;
-  localStorage.setItem('memory-game-lefff_name', changeNameInput.value)
+import { audioClick } from './headerEvents.js';
+
+const changeTextAndLocalAndReset = (changeNameInput) => {
+  const timeName = document.querySelector('.time__name');
+  const homeTitle = document.querySelector('.home__title');
+  const newName = changeNameInput.value
+
+  timeName.textContent = newName;
+  localStorage.setItem('memory-game-lefff_name', newName)
+  homeTitle.innerHTML = `Hello, ${newName}!`
   changeNameInput.value = '';
 }
 
@@ -13,15 +20,26 @@ const animationIncorrect = (changeNameInput) => {
   }, 500)
 }
 
+const changeTextHomeForm = () => {
+  const homeTextSelect = document.querySelectorAll('.home__text-select');
+  const homeInput = document.querySelector('.home__input');
+  
+  if(homeTextSelect && homeInput) {
+    homeTextSelect[2].textContent = 'click start';
+    homeInput.remove();
+  }
+}
+
 export const changeName = () => {
   const changeNameInput = document.querySelector('.modal__input_change-name');
   const changeNameButton = document.querySelector('.modal__button_change-name');
-  const timeName = document.querySelector('.time__name');
 
   changeNameInput.addEventListener('keydown', event => {
     if(event.key === 'Enter') {
+      audioClick();
       if(changeNameInput.value !== '') {
-        changeTextAndLocalAndReset(changeNameInput, timeName);
+        changeTextAndLocalAndReset(changeNameInput);
+        changeTextHomeForm();
       } else {
         animationIncorrect(changeNameInput);
       }
@@ -29,8 +47,10 @@ export const changeName = () => {
   })
 
   changeNameButton.addEventListener('click', () => {
+    audioClick();
     if(changeNameInput.value !== '') {
-      changeTextAndLocalAndReset(changeNameInput, timeName);
+      changeTextAndLocalAndReset(changeNameInput);
+      changeTextHomeForm();
     } else {
       animationIncorrect(changeNameInput);
     }
