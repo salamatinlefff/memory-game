@@ -174,7 +174,7 @@ export const gamePage = () => {
   cardsList.className = 'cards';
 
   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
-  // arr.sort( () => Math.random() > 0.5 ? 1 : -1);
+  arr.sort( () => Math.random() > 0.5 ? 1 : -1);
   const cards = [];
   for(let i = 0; i < 16; i += 1) {
     const card = document.createElement('li');
