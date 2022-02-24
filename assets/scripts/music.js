@@ -61,7 +61,6 @@ export const music = () => {
     
     audio.click.volume = inputEffects.value / 100;
     audio.victory.volume = inputEffects.value / 100;
-    audio.positiveResponse.volume = inputEffects.value / 100;
   })
 
   inputCorrectIncorrect.addEventListener('input', () => {

@@ -1,12 +1,13 @@
 import { audioClick } from './headerEvents.js';
+import { localData } from './localData.js';
 
 const changeTextAndLocalAndReset = (changeNameInput) => {
   const timeName = document.querySelector('.time__name');
   const homeTitle = document.querySelector('.home__title');
   const newName = changeNameInput.value
 
+  localData('name', newName)
   timeName.textContent = newName;
-  localStorage.setItem('memory-game-lefff_name', newName)
   homeTitle.innerHTML = `Hello, ${newName}!`
   changeNameInput.value = '';
 }
