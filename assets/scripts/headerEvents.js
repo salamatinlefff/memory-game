@@ -1,6 +1,6 @@
-import { init, isStartedGame, reset } from './index.js';
+import { isStartedGame, reset } from './index.js';
 import { changeTime } from './changeTime.js';
-import { gamePage, homePage } from './layout.js';
+import { addLayout, gamePage, homePage } from './layout.js';
 import { audio } from './music.js';
 
 const ifGameAndStartedGame = () => {
@@ -73,7 +73,7 @@ export const headerEvents = () => {
   home.addEventListener('click', () => {
     reset();
     audioClick()
-    init(homePage());
+    addLayout(homePage());
     changeTime(true);
   })
 }

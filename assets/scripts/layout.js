@@ -1,30 +1,87 @@
 import { addZero } from './changeTime.js';
 import { audioClick } from './headerEvents.js';
-import { init, reset } from './index.js';
+import { cards, reset } from './index.js';
 import { getLocalDataBest, getLocalDataHistory, getLocalDataName, localData } from './localData.js';
 
-export const deleteLayout = () => {
-  const sidebar = document.querySelector('.sidebar');
-  const homePage = document.querySelector('.main__home');
-  const gamePage = document.querySelector('.main__game');
-  const asideResults = document.querySelector('.aside__results');
-
-  [sidebar, homePage, gamePage, asideResults].forEach( element => {
-    if(element) {
-      if(element.classList.contains('main_active')) {
-        element.classList.remove('main_active');
-        element.remove();
-      } else {
-        element.remove();
-      }
-    } else {
-      return
-    }
-  });
+export const deleteContainer = () => {
+  const container = document.querySelector('.container');
+  if(container) {
+    container.remove()
+  }
 };
 
+export const addLayoutHeaderAndOverlay = () => {
+  const header = document.createElement('header');
+  header.className = 'header';
+  header.innerHTML = `
+  <nav class="header__navigation">
+      <ul class="navigation__list">
+              
+        <li class="navigation__item">
+          <button class="navigation__button restart">restart
+
+        </button>
+      </li>
+      
+        <li class="navigation__item">
+          <button class="navigation__button home">home</button>
+        </li>
+
+        <li class="navigation__item">
+          <button class="navigation__button settings">settings</button>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="mute">
+      <input class="mute__checkbox" type="checkbox" id="mute">
+      <label for="mute" class="mute__label">mute</label>
+    </div>
+  `;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'overlay';
+  overlay.innerHTML = `
+  <div class="overlay__modal modal">
+  <h2 class="modal__title">Settings</h2>
+  
+  <label class="modal__label">Music: 
+    <input class="modal__input modal__input_background" type="range" value="50">
+  </label>
+
+  <label class="modal__label">Effects: 
+    <input class="modal__input modal__input_effects" type="range" value="50">
+  </label>
+
+  <label class="modal__label"><p class="modal__label_text">Correct/ Incorrect match:</p> 
+    <input class="modal__input modal__input_correct-incorrect" type="range" value="10">
+  </label>
+
+  <label class="modal__label modal__label_change-name">Change name: 
+    <input class="modal__input modal__input_change-name" type="text" placeholder="new name">
+  </label>
+  <button class="modal__button_change-name">change name</button>
+
+  <button class="modal__close">
+    <svg class="close__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="#ffffff"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+  </button>
+</div>
+
+<div class="overlay__result result">
+  <h2 class="result__title">Your result:</h2>
+  <p class="result__text">00:00</p>
+  <button class="result__button">OK</button>
+</div>
+  `
+
+  document.body.append(header, overlay);
+}
+
 export const addLayout = (data) => {
-  const container = document.querySelector('.container');
+  deleteContainer();
+
+  const container = document.createElement('div');
+  container.className = 'container'
 
   data.forEach( (element) => {
     container.append(element)
@@ -35,6 +92,9 @@ export const addLayout = (data) => {
       return
     }
   });
+  document.body.append(container);
+
+  cards();
 }
 
   const minutes = () => {
@@ -112,7 +172,7 @@ export const homePage = () => {
     if(input.value !== '' || getLocalDataName()) {
       audioClick();
       setTimeout( () => {
-        init(gamePage());
+        addLayout(gamePage());
       }, 300)
     } else {
       input.focus()
@@ -150,6 +210,14 @@ export const homePage = () => {
     list.innerHTML = '';
   }
 
+  const footer = document.createElement('footer');
+  footer.className = 'footer';
+  footer.innerHTML = `
+    <a href="https://github.com/salamatinlefff" class="github" target="blank">@salamatinlefff</a>
+    <span class="year">2022</span>
+    <a href="https://rs.school/js-stage0/" class="rs_link" target="blank"></a>
+  `
+
   const restart = document.querySelector('.restart');
   restart.classList.remove('restart_active');
 
@@ -160,7 +228,7 @@ export const homePage = () => {
   homePage.append(homeForm);
   results.append(title, list);
 
-  return [sidebar, homePage, results];
+  return [sidebar, homePage, results, footer];
 }
 
 export const gamePage = () => {
@@ -228,6 +296,14 @@ export const gamePage = () => {
     list.innerHTML = ``
   };
 
+  const footer = document.createElement('footer');
+  footer.className = 'footer';
+  footer.innerHTML = `
+    <a href="https://github.com/salamatinlefff" class="github" target="blank">@salamatinlefff</a>
+    <span class="year">2022</span>
+    <a href="https://rs.school/js-stage0/" class="rs_link" target="blank"></a>
+  `
+
   const restart = document.querySelector('.restart');
   restart.classList.add('restart_active');
   cardsList.append(...cards)
@@ -235,5 +311,5 @@ export const gamePage = () => {
   gamePage.append(gameWrapper)
   results.append(title, list);
 
-  return [sidebar, gamePage, results];
+  return [sidebar, gamePage, results, footer];
 }

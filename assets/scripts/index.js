@@ -1,5 +1,5 @@
 
-import { gamePage, addLayout, deleteLayout, homePage } from './layout.js';
+import { gamePage, addLayout, homePage, addLayoutHeaderAndOverlay } from './layout.js';
 import { addZero, changeTime, returnSeconds, viewTime } from './changeTime.js';
 import { audio, music } from './music.js';
 import { headerEvents } from './headerEvents.js';
@@ -12,17 +12,13 @@ let disableDeck = false;
 let isStarted = false;
 let bestResult = 0
 
-export const init = (page) => {
-  deleteLayout();
-  addLayout(page);
-  cards();
-}
-  init(homePage());
+  addLayoutHeaderAndOverlay();
+  addLayout(homePage());
   headerEvents();
   music();
   changeName();
 
-function cards() {
+export function cards() {
   const cards = document.querySelectorAll('.card');
 
   cards.forEach( card => {
@@ -85,7 +81,7 @@ export function matchCards(imgOneSrc, imgTwoSrc, cardMain, cardSecond) {
 
       setTimeout( () => {
         reset();
-        init(gamePage());
+        addLayout(gamePage());
       },1000)
 
     } else {
